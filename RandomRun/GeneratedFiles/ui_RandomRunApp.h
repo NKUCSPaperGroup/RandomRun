@@ -14,6 +14,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
@@ -22,9 +23,10 @@ QT_BEGIN_NAMESPACE
 class Ui_RandomRunAppClass
 {
 public:
+    QWidget *centralWidget;
+    QTextBrowser *textLogger;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
-    QWidget *centralWidget;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *RandomRunAppClass)
@@ -32,15 +34,19 @@ public:
         if (RandomRunAppClass->objectName().isEmpty())
             RandomRunAppClass->setObjectName(QString::fromUtf8("RandomRunAppClass"));
         RandomRunAppClass->resize(600, 400);
+        centralWidget = new QWidget(RandomRunAppClass);
+        centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
+        textLogger = new QTextBrowser(centralWidget);
+        textLogger->setObjectName(QString::fromUtf8("textLogger"));
+        textLogger->setGeometry(QRect(0, 0, 591, 361));
+        RandomRunAppClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(RandomRunAppClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
+        menuBar->setGeometry(QRect(0, 0, 600, 26));
         RandomRunAppClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(RandomRunAppClass);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
-        RandomRunAppClass->addToolBar(mainToolBar);
-        centralWidget = new QWidget(RandomRunAppClass);
-        centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
-        RandomRunAppClass->setCentralWidget(centralWidget);
+        RandomRunAppClass->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(RandomRunAppClass);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
         RandomRunAppClass->setStatusBar(statusBar);
