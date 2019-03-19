@@ -2,4 +2,5 @@
 #include <QtWidgets>
 #include <sstream>
 #include <cmath>
-#include <ctime>
+#include <array>
+#include <memory>

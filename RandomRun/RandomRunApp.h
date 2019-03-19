@@ -6,7 +6,7 @@
 
 class RandomRunApp : public QMainWindow
 {
-Q_OBJECT
+	Q_OBJECT
 
 public:
 	RandomRunApp(QWidget* parent = Q_NULLPTR);
@@ -20,8 +20,8 @@ public:
 	}
 
 public slots:
-	void print()
+	void print(QString msg)
 	{
-		logger().writeLog();
+		this->ui.textLogger->setText(msg);
 	}
 };

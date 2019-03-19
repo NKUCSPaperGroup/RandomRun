@@ -29,8 +29,8 @@
       <Extensions>moc;h;cpp</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
-    <Filter Include="Header Files\event">
-      <UniqueIdentifier>{35f9c45f-966e-4539-80bc-240b03caca9b}</UniqueIdentifier>
+    <Filter Include="Header Files\gen">
+      <UniqueIdentifier>{0d42383a-7b80-413b-991d-b38fd4c78fcb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -46,30 +46,39 @@
     <ClCompile Include="Logger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="uniformGen.h">
+      <Filter>Header Files\gen</Filter>
+    </ClCompile>
+    <ClCompile Include="runner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="position.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="core\runner.h">
+    <ClInclude Include="position.h">
       <Filter>Header Files\core</Filter>
     </ClInclude>
-    <ClInclude Include="core\randGen.h">
+    <ClInclude Include="randGen.h">
       <Filter>Header Files\core</Filter>
-    </ClInclude>
-    <ClInclude Include="core\position.h">
-      <Filter>Header Files\core</Filter>
-    </ClInclude>
-    <ClInclude Include="Logger.h">
-      <Filter>Header Files\debug</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="RandomRunApp.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="positionChangedEvent.h">
-      <Filter>Header Files\event</Filter>
+    <QtMoc Include="Logger.h">
+      <Filter>Header Files\debug</Filter>
+    </QtMoc>
+    <QtMoc Include="runner.h">
+      <Filter>Header Files\core</Filter>
+    </QtMoc>
+    <QtMoc Include="path.h">
+      <Filter>Header Files\core</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
