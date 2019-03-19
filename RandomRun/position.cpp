@@ -54,3 +54,57 @@ std::ostream& operator<<(std::ostream& os, const pos2i& obj)
 {
 	return os << "(" << obj.x() << "," << obj.y() << ")";
 }
+
+double pos2d::x() const
+{
+	return pos_[0];
+}
+
+double pos2d::y() const
+{
+	return pos_[1];
+}
+
+void pos2d::set(const double x, const double y)
+{
+	pos_[0] = x;
+	pos_[1] = y;
+}
+
+pos2d::pos2d() : pos2d(0, 0)
+{
+}
+
+pos2d::pos2d(const double x, const double y)
+{
+	set(x, y);
+}
+
+pos2d::pos2d(const pos2d& other) : pos_(other.pos_)
+{
+}
+
+pos2d::pos2d(pos2d&& other) noexcept : pos_(other.pos_)
+{
+}
+
+pos2d& pos2d::operator=(const pos2d& other)
+{
+	set(other.x(), other.y());
+	return *this;
+}
+
+pos2d pos2d::copy() const
+{
+	return pos2d{ *this };
+}
+
+pos2d operator+(const pos2d& a, const pos2d& b)
+{
+	return { a.x() + b.x(), a.y() + b.y() };
+}
+
+std::ostream& operator<<(std::ostream& os, const pos2d& obj)
+{
+	return os << "(" << obj.x() << "," << obj.y() << ")";
+}

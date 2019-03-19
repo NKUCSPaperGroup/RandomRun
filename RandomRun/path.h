@@ -6,17 +6,17 @@
 
 using std::vector;
 
-class path : public QObject
+class path2i : public QObject
 {
 	Q_OBJECT
 
 public:
-	explicit path(QObject* const parent)
+	explicit path2i(QObject* const parent)
 		: QObject(parent)
 	{
 	}
 
-	explicit path(runner* parent)
+	explicit path2i(runner2i* parent)
 		: QObject(parent)
 	{
 		connect(parent, SIGNAL(positionChanged(pos2i, pos2i)), this, SLOT(push_history(pos2i, pos2i)));
@@ -33,8 +33,29 @@ public slots:
 	void push_history(pos2i pre, pos2i now);
 };
 
-inline void path::push_history(pos2i pre, pos2i now)
+class path2d : public QObject
 {
-	if (history_.size() == 0)history_.push_back(pre);
-	history_.push_back(now);
-}
+	Q_OBJECT
+
+public:
+	explicit path2d(QObject* const parent)
+		: QObject(parent)
+	{
+	}
+
+	explicit path2d(runner2d* parent)
+		: QObject(parent)
+	{
+		connect(parent, SIGNAL(positionChanged(pos2d, pos2d)), this, SLOT(push_history(pos2d, pos2d)));
+	}
+
+	vector<pos2d>& history()
+	{
+		return history_;
+	}
+
+private:
+	vector<pos2d> history_;
+public slots:
+	void push_history(pos2d pre, pos2d now);
+};

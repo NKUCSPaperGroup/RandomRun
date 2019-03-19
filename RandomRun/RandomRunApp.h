@@ -20,7 +20,7 @@ public:
 	}
 
 public slots:
-	void print(QString msg)
+	void print(const QString msg)
 	{
 		this->ui.textLogger->setText(msg);
 	}

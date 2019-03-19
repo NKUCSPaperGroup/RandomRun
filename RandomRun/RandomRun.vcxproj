@@ -123,6 +123,7 @@
   <ItemGroup>
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="path.cpp" />
     <ClCompile Include="position.cpp" />
     <ClCompile Include="RandomRunApp.cpp" />
     <ClCompile Include="runner.cpp" />
