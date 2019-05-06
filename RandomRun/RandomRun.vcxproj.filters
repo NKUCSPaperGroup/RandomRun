@@ -58,6 +58,9 @@
     <ClCompile Include="runner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="QtLoggerFrame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -83,9 +86,15 @@
     <QtMoc Include="path.h">
       <Filter>Header Files\core</Filter>
     </QtMoc>
+    <QtMoc Include="QtLoggerFrame.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="RandomRunApp.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="QtLoggerFrame.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -93,5 +102,8 @@
     <QtRcc Include="RandomRunApp.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="core.cd" />
   </ItemGroup>
 </Project>
