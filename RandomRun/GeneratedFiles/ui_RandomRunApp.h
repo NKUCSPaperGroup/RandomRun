@@ -45,16 +45,20 @@ public:
     QComboBox *yRandCombBox;
     QGroupBox *group2;
     QGridLayout *gridLayout_2;
-    QLabel *label_4;
-    QTextEdit *maxStepTextEdit;
-    QHBoxLayout *horizontalLayout_2;
-    QTextEdit *xtextEdit;
-    QTextEdit *ytextEdit;
-    QTextEdit *maxTimesTextEdit;
-    QTextEdit *minStepTextEdit;
-    QLabel *label_5;
     QLabel *label;
+    QHBoxLayout *horizontalLayout_2;
+    QTextEdit *xiEdit;
+    QTextEdit *yiEdit;
+    QLabel *label_4;
+    QTextEdit *xtextEdit_5;
+    QLabel *label_5;
+    QHBoxLayout *horizontalLayout_7;
+    QTextEdit *xMaxStepEdit;
+    QTextEdit *yMaxStepEdit;
     QLabel *label_6;
+    QHBoxLayout *horizontalLayout_8;
+    QTextEdit *xMinStepEdit;
+    QTextEdit *yMinStepEdit;
     QGroupBox *groupBox;
     QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout_3;
@@ -174,8 +178,54 @@ public:
         gridLayout_2->setSpacing(6);
         gridLayout_2->setContentsMargins(11, 11, 11, 11);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        gridLayout_2->setHorizontalSpacing(14);
-        gridLayout_2->setVerticalSpacing(7);
+        label = new QLabel(group2);
+        label->setObjectName(QString::fromUtf8("label"));
+        sizePolicy3.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
+        label->setSizePolicy(sizePolicy3);
+
+        gridLayout_2->addWidget(label, 0, 0, 1, 1);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(15);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        xiEdit = new QTextEdit(group2);
+        xiEdit->setObjectName(QString::fromUtf8("xiEdit"));
+        sizePolicy1.setHeightForWidth(xiEdit->sizePolicy().hasHeightForWidth());
+        xiEdit->setSizePolicy(sizePolicy1);
+        xiEdit->setMinimumSize(QSize(0, 10));
+        xiEdit->setMaximumSize(QSize(16777215, 35));
+        QFont font;
+        font.setFamily(QString::fromUtf8("Adobe Arabic"));
+        font.setPointSize(13);
+        font.setBold(false);
+        font.setWeight(50);
+        xiEdit->setFont(font);
+        xiEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        xiEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        xiEdit->setTabChangesFocus(true);
+        xiEdit->setAcceptRichText(false);
+
+        horizontalLayout_2->addWidget(xiEdit);
+
+        yiEdit = new QTextEdit(group2);
+        yiEdit->setObjectName(QString::fromUtf8("yiEdit"));
+        sizePolicy1.setHeightForWidth(yiEdit->sizePolicy().hasHeightForWidth());
+        yiEdit->setSizePolicy(sizePolicy1);
+        yiEdit->setMinimumSize(QSize(0, 10));
+        yiEdit->setMaximumSize(QSize(16777215, 35));
+        yiEdit->setFont(font);
+        yiEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        yiEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        yiEdit->setTabChangesFocus(true);
+        yiEdit->setAcceptRichText(false);
+
+        horizontalLayout_2->addWidget(yiEdit);
+
+        horizontalLayout_2->setStretch(0, 1);
+        horizontalLayout_2->setStretch(1, 1);
+
+        gridLayout_2->addLayout(horizontalLayout_2, 0, 1, 1, 1);
+
         label_4 = new QLabel(group2);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         sizePolicy3.setHeightForWidth(label_4->sizePolicy().hasHeightForWidth());
@@ -183,91 +233,19 @@ public:
 
         gridLayout_2->addWidget(label_4, 1, 0, 1, 1);
 
-        maxStepTextEdit = new QTextEdit(group2);
-        maxStepTextEdit->setObjectName(QString::fromUtf8("maxStepTextEdit"));
-        QSizePolicy sizePolicy5(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy5.setHorizontalStretch(8);
-        sizePolicy5.setVerticalStretch(0);
-        sizePolicy5.setHeightForWidth(maxStepTextEdit->sizePolicy().hasHeightForWidth());
-        maxStepTextEdit->setSizePolicy(sizePolicy5);
-        maxStepTextEdit->setMinimumSize(QSize(0, 10));
-        maxStepTextEdit->setMaximumSize(QSize(16777215, 35));
-        QFont font;
-        font.setFamily(QString::fromUtf8("Adobe Arabic"));
-        font.setPointSize(13);
-        font.setBold(false);
-        font.setWeight(50);
-        maxStepTextEdit->setFont(font);
-        maxStepTextEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        maxStepTextEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        maxStepTextEdit->setTabChangesFocus(true);
-        maxStepTextEdit->setAcceptRichText(false);
+        xtextEdit_5 = new QTextEdit(group2);
+        xtextEdit_5->setObjectName(QString::fromUtf8("xtextEdit_5"));
+        sizePolicy1.setHeightForWidth(xtextEdit_5->sizePolicy().hasHeightForWidth());
+        xtextEdit_5->setSizePolicy(sizePolicy1);
+        xtextEdit_5->setMinimumSize(QSize(0, 10));
+        xtextEdit_5->setMaximumSize(QSize(16777215, 35));
+        xtextEdit_5->setFont(font);
+        xtextEdit_5->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        xtextEdit_5->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        xtextEdit_5->setTabChangesFocus(true);
+        xtextEdit_5->setAcceptRichText(false);
 
-        gridLayout_2->addWidget(maxStepTextEdit, 2, 1, 1, 1);
-
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setSpacing(15);
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        xtextEdit = new QTextEdit(group2);
-        xtextEdit->setObjectName(QString::fromUtf8("xtextEdit"));
-        sizePolicy1.setHeightForWidth(xtextEdit->sizePolicy().hasHeightForWidth());
-        xtextEdit->setSizePolicy(sizePolicy1);
-        xtextEdit->setMinimumSize(QSize(0, 10));
-        xtextEdit->setMaximumSize(QSize(16777215, 35));
-        xtextEdit->setFont(font);
-        xtextEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        xtextEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        xtextEdit->setTabChangesFocus(true);
-        xtextEdit->setAcceptRichText(false);
-
-        horizontalLayout_2->addWidget(xtextEdit);
-
-        ytextEdit = new QTextEdit(group2);
-        ytextEdit->setObjectName(QString::fromUtf8("ytextEdit"));
-        sizePolicy1.setHeightForWidth(ytextEdit->sizePolicy().hasHeightForWidth());
-        ytextEdit->setSizePolicy(sizePolicy1);
-        ytextEdit->setMinimumSize(QSize(0, 10));
-        ytextEdit->setMaximumSize(QSize(16777215, 35));
-        ytextEdit->setFont(font);
-        ytextEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        ytextEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        ytextEdit->setTabChangesFocus(true);
-        ytextEdit->setAcceptRichText(false);
-
-        horizontalLayout_2->addWidget(ytextEdit);
-
-        horizontalLayout_2->setStretch(0, 1);
-        horizontalLayout_2->setStretch(1, 1);
-
-        gridLayout_2->addLayout(horizontalLayout_2, 0, 1, 1, 1);
-
-        maxTimesTextEdit = new QTextEdit(group2);
-        maxTimesTextEdit->setObjectName(QString::fromUtf8("maxTimesTextEdit"));
-        sizePolicy5.setHeightForWidth(maxTimesTextEdit->sizePolicy().hasHeightForWidth());
-        maxTimesTextEdit->setSizePolicy(sizePolicy5);
-        maxTimesTextEdit->setMinimumSize(QSize(0, 10));
-        maxTimesTextEdit->setMaximumSize(QSize(16777215, 35));
-        maxTimesTextEdit->setFont(font);
-        maxTimesTextEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        maxTimesTextEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        maxTimesTextEdit->setTabChangesFocus(true);
-        maxTimesTextEdit->setAcceptRichText(false);
-
-        gridLayout_2->addWidget(maxTimesTextEdit, 1, 1, 1, 1);
-
-        minStepTextEdit = new QTextEdit(group2);
-        minStepTextEdit->setObjectName(QString::fromUtf8("minStepTextEdit"));
-        sizePolicy5.setHeightForWidth(minStepTextEdit->sizePolicy().hasHeightForWidth());
-        minStepTextEdit->setSizePolicy(sizePolicy5);
-        minStepTextEdit->setMinimumSize(QSize(0, 10));
-        minStepTextEdit->setMaximumSize(QSize(16777215, 35));
-        minStepTextEdit->setFont(font);
-        minStepTextEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        minStepTextEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        minStepTextEdit->setTabChangesFocus(true);
-        minStepTextEdit->setAcceptRichText(false);
-
-        gridLayout_2->addWidget(minStepTextEdit, 3, 1, 1, 1);
+        gridLayout_2->addWidget(xtextEdit_5, 1, 1, 1, 1);
 
         label_5 = new QLabel(group2);
         label_5->setObjectName(QString::fromUtf8("label_5"));
@@ -276,19 +254,84 @@ public:
 
         gridLayout_2->addWidget(label_5, 2, 0, 1, 1);
 
-        label = new QLabel(group2);
-        label->setObjectName(QString::fromUtf8("label"));
-        sizePolicy3.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
-        label->setSizePolicy(sizePolicy3);
+        horizontalLayout_7 = new QHBoxLayout();
+        horizontalLayout_7->setSpacing(15);
+        horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
+        xMaxStepEdit = new QTextEdit(group2);
+        xMaxStepEdit->setObjectName(QString::fromUtf8("xMaxStepEdit"));
+        sizePolicy1.setHeightForWidth(xMaxStepEdit->sizePolicy().hasHeightForWidth());
+        xMaxStepEdit->setSizePolicy(sizePolicy1);
+        xMaxStepEdit->setMinimumSize(QSize(0, 10));
+        xMaxStepEdit->setMaximumSize(QSize(16777215, 35));
+        xMaxStepEdit->setFont(font);
+        xMaxStepEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        xMaxStepEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        xMaxStepEdit->setTabChangesFocus(true);
+        xMaxStepEdit->setAcceptRichText(false);
 
-        gridLayout_2->addWidget(label, 0, 0, 1, 1);
+        horizontalLayout_7->addWidget(xMaxStepEdit);
+
+        yMaxStepEdit = new QTextEdit(group2);
+        yMaxStepEdit->setObjectName(QString::fromUtf8("yMaxStepEdit"));
+        sizePolicy1.setHeightForWidth(yMaxStepEdit->sizePolicy().hasHeightForWidth());
+        yMaxStepEdit->setSizePolicy(sizePolicy1);
+        yMaxStepEdit->setMinimumSize(QSize(0, 10));
+        yMaxStepEdit->setMaximumSize(QSize(16777215, 35));
+        yMaxStepEdit->setFont(font);
+        yMaxStepEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        yMaxStepEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        yMaxStepEdit->setTabChangesFocus(true);
+        yMaxStepEdit->setAcceptRichText(false);
+
+        horizontalLayout_7->addWidget(yMaxStepEdit);
+
+        horizontalLayout_7->setStretch(0, 1);
+        horizontalLayout_7->setStretch(1, 1);
+
+        gridLayout_2->addLayout(horizontalLayout_7, 2, 1, 1, 1);
 
         label_6 = new QLabel(group2);
         label_6->setObjectName(QString::fromUtf8("label_6"));
         sizePolicy3.setHeightForWidth(label_6->sizePolicy().hasHeightForWidth());
         label_6->setSizePolicy(sizePolicy3);
 
-        gridLayout_2->addWidget(label_6, 3, 0, 1, 1);
+        gridLayout_2->addWidget(label_6, 4, 0, 1, 1);
+
+        horizontalLayout_8 = new QHBoxLayout();
+        horizontalLayout_8->setSpacing(15);
+        horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
+        xMinStepEdit = new QTextEdit(group2);
+        xMinStepEdit->setObjectName(QString::fromUtf8("xMinStepEdit"));
+        sizePolicy1.setHeightForWidth(xMinStepEdit->sizePolicy().hasHeightForWidth());
+        xMinStepEdit->setSizePolicy(sizePolicy1);
+        xMinStepEdit->setMinimumSize(QSize(0, 10));
+        xMinStepEdit->setMaximumSize(QSize(16777215, 35));
+        xMinStepEdit->setFont(font);
+        xMinStepEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        xMinStepEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        xMinStepEdit->setTabChangesFocus(true);
+        xMinStepEdit->setAcceptRichText(false);
+
+        horizontalLayout_8->addWidget(xMinStepEdit);
+
+        yMinStepEdit = new QTextEdit(group2);
+        yMinStepEdit->setObjectName(QString::fromUtf8("yMinStepEdit"));
+        sizePolicy1.setHeightForWidth(yMinStepEdit->sizePolicy().hasHeightForWidth());
+        yMinStepEdit->setSizePolicy(sizePolicy1);
+        yMinStepEdit->setMinimumSize(QSize(0, 10));
+        yMinStepEdit->setMaximumSize(QSize(16777215, 35));
+        yMinStepEdit->setFont(font);
+        yMinStepEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        yMinStepEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        yMinStepEdit->setTabChangesFocus(true);
+        yMinStepEdit->setAcceptRichText(false);
+
+        horizontalLayout_8->addWidget(yMinStepEdit);
+
+        horizontalLayout_8->setStretch(0, 1);
+        horizontalLayout_8->setStretch(1, 1);
+
+        gridLayout_2->addLayout(horizontalLayout_8, 4, 1, 1, 1);
 
 
         verticalLayout_2->addWidget(group2);
@@ -306,11 +349,11 @@ public:
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         nextButton = new QPushButton(groupBox);
         nextButton->setObjectName(QString::fromUtf8("nextButton"));
-        QSizePolicy sizePolicy6(QSizePolicy::Preferred, QSizePolicy::Fixed);
-        sizePolicy6.setHorizontalStretch(10);
-        sizePolicy6.setVerticalStretch(1);
-        sizePolicy6.setHeightForWidth(nextButton->sizePolicy().hasHeightForWidth());
-        nextButton->setSizePolicy(sizePolicy6);
+        QSizePolicy sizePolicy5(QSizePolicy::Preferred, QSizePolicy::Fixed);
+        sizePolicy5.setHorizontalStretch(10);
+        sizePolicy5.setVerticalStretch(1);
+        sizePolicy5.setHeightForWidth(nextButton->sizePolicy().hasHeightForWidth());
+        nextButton->setSizePolicy(sizePolicy5);
         nextButton->setMinimumSize(QSize(100, 0));
         nextButton->setMaximumSize(QSize(200, 16777215));
 
@@ -322,8 +365,8 @@ public:
 
         preButton = new QPushButton(groupBox);
         preButton->setObjectName(QString::fromUtf8("preButton"));
-        sizePolicy6.setHeightForWidth(preButton->sizePolicy().hasHeightForWidth());
-        preButton->setSizePolicy(sizePolicy6);
+        sizePolicy5.setHeightForWidth(preButton->sizePolicy().hasHeightForWidth());
+        preButton->setSizePolicy(sizePolicy5);
         preButton->setMinimumSize(QSize(100, 0));
         preButton->setMaximumSize(QSize(200, 16777215));
 
@@ -337,8 +380,8 @@ public:
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
         allGetsButton = new QPushButton(groupBox);
         allGetsButton->setObjectName(QString::fromUtf8("allGetsButton"));
-        sizePolicy6.setHeightForWidth(allGetsButton->sizePolicy().hasHeightForWidth());
-        allGetsButton->setSizePolicy(sizePolicy6);
+        sizePolicy5.setHeightForWidth(allGetsButton->sizePolicy().hasHeightForWidth());
+        allGetsButton->setSizePolicy(sizePolicy5);
         allGetsButton->setMinimumSize(QSize(100, 0));
         allGetsButton->setMaximumSize(QSize(200, 16777215));
 
@@ -350,8 +393,8 @@ public:
 
         clearButton = new QPushButton(groupBox);
         clearButton->setObjectName(QString::fromUtf8("clearButton"));
-        sizePolicy6.setHeightForWidth(clearButton->sizePolicy().hasHeightForWidth());
-        clearButton->setSizePolicy(sizePolicy6);
+        sizePolicy5.setHeightForWidth(clearButton->sizePolicy().hasHeightForWidth());
+        clearButton->setSizePolicy(sizePolicy5);
         clearButton->setMinimumSize(QSize(100, 0));
         clearButton->setMaximumSize(QSize(200, 16777215));
 
@@ -371,11 +414,11 @@ public:
 
         widgetR = new QWidget(centralWidget);
         widgetR->setObjectName(QString::fromUtf8("widgetR"));
-        QSizePolicy sizePolicy7(QSizePolicy::Expanding, QSizePolicy::Preferred);
-        sizePolicy7.setHorizontalStretch(0);
-        sizePolicy7.setVerticalStretch(0);
-        sizePolicy7.setHeightForWidth(widgetR->sizePolicy().hasHeightForWidth());
-        widgetR->setSizePolicy(sizePolicy7);
+        QSizePolicy sizePolicy6(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        sizePolicy6.setHorizontalStretch(0);
+        sizePolicy6.setVerticalStretch(0);
+        sizePolicy6.setHeightForWidth(widgetR->sizePolicy().hasHeightForWidth());
+        widgetR->setSizePolicy(sizePolicy6);
         verticalLayout = new QVBoxLayout(widgetR);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
@@ -412,11 +455,11 @@ public:
 
         drawView = new QWidget(widgetR);
         drawView->setObjectName(QString::fromUtf8("drawView"));
-        QSizePolicy sizePolicy8(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        sizePolicy8.setHorizontalStretch(0);
-        sizePolicy8.setVerticalStretch(0);
-        sizePolicy8.setHeightForWidth(drawView->sizePolicy().hasHeightForWidth());
-        drawView->setSizePolicy(sizePolicy8);
+        QSizePolicy sizePolicy7(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy7.setHorizontalStretch(0);
+        sizePolicy7.setVerticalStretch(0);
+        sizePolicy7.setHeightForWidth(drawView->sizePolicy().hasHeightForWidth());
+        drawView->setSizePolicy(sizePolicy7);
 
         verticalLayout->addWidget(drawView);
 
@@ -450,9 +493,9 @@ public:
         label_2->setText(QApplication::translate("RandomRunAppClass", "x\351\232\217\346\234\272\345\231\250", nullptr));
         label_3->setText(QApplication::translate("RandomRunAppClass", "y\351\232\217\346\234\272\345\231\250", nullptr));
         group2->setTitle(QApplication::translate("RandomRunAppClass", "\347\212\266\346\200\201", nullptr));
+        label->setText(QApplication::translate("RandomRunAppClass", "\345\210\235\345\247\213\344\275\215\347\275\256", nullptr));
         label_4->setText(QApplication::translate("RandomRunAppClass", "\346\234\200\345\244\247\346\254\241\346\225\260", nullptr));
         label_5->setText(QApplication::translate("RandomRunAppClass", "\346\234\200\345\244\247\346\255\245\351\225\277", nullptr));
-        label->setText(QApplication::translate("RandomRunAppClass", "\345\210\235\345\247\213\344\275\215\347\275\256", nullptr));
         label_6->setText(QApplication::translate("RandomRunAppClass", "\346\234\200\345\260\217\346\255\245\351\225\277", nullptr));
         groupBox->setTitle(QApplication::translate("RandomRunAppClass", "\346\223\215\344\275\234", nullptr));
         nextButton->setText(QApplication::translate("RandomRunAppClass", "\344\270\213\344\270\200\344\270\252", nullptr));
