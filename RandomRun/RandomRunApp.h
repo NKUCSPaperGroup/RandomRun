@@ -6,22 +6,14 @@
 
 class RandomRunApp : public QMainWindow
 {
-	Q_OBJECT
-
+Q_OBJECT
 public:
 	RandomRunApp(QWidget* parent = Q_NULLPTR);
+	~RandomRunApp() = default;
 private:
 	Ui::RandomRunAppClass ui;
-	Logger logger_;
-public:
-	Logger& logger()
-	{
-		return logger_;
-	}
-
 public slots:
-	void print(const QString msg)
-	{
-		this->ui.textLogger->setText(msg);
-	}
+
+signals:
+
 };
