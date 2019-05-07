@@ -17,9 +17,15 @@ int main(int argc, char* argv[])
 #ifdef  _DEBUG
 	QtLoggerFrame logger;
 	logger.show();
-	test1(logger);
+	//test1(logger);
 #endif
+#ifndef _DEBUG
 	RandomRunApp w;
+#else
+	RandomRunApp w(&logger);
+	w.setLogger(&logger);
+#endif
+
 	w.show();
 	return QApplication::exec();
 }
@@ -41,7 +47,7 @@ void test1(QtLoggerFrame& logger)
 	auto& his = path1.history();
 
 	for (auto& e : his)
-		logger << e << "\n";
+		logger << e;
 	//for double
 	RunnerSetting2d dsetting;
 	dsetting.minLength = {-1, 0};
@@ -56,6 +62,6 @@ void test1(QtLoggerFrame& logger)
 	auto& his2 = path2.history();
 
 	for (auto& e : his2)
-		logger << e << "\n";
+		logger << e;
 }
 #endif

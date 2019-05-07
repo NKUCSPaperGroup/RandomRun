@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="path2i" Collapsed="true">
+    <Position X="0.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>path.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="path2d">
+    <Position X="9.25" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>path.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pos2i" Collapsed="true">
+    <Position X="0.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAABAIAAABgEAAAAAA=</HashCode>
+      <FileName>position.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pos2d">
+    <Position X="9.25" Y="1.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAQAAAAAAAAAAAIAAABgEAAAAAA=</HashCode>
+      <FileName>position.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandGenInterface">
+    <Position X="5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAACAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>randGen.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="runner2i" Collapsed="true">
+    <Position X="0.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGIAAACAAABCAAAAAACAAIAAAAAIAAAAEAAAEAAAAAA=</HashCode>
+      <FileName>runner.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="runner2d">
+    <Position X="7" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGIAAAGAAABCAAAAAAAAAIAAAAAIAAAAEAAAEAAAAAA=</HashCode>
+      <FileName>runner.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="RunnerSetting2i">
+    <Position X="0.75" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAgABAAQAAAAAAAAAA=</HashCode>
+      <FileName>runner.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="RunnerSetting2d">
+    <Position X="5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAgABAAQAAAAAAAAAA=</HashCode>
+      <FileName>runner.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
