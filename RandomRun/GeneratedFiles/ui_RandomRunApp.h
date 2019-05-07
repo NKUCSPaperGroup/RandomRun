@@ -45,13 +45,9 @@ public:
     QComboBox *yRandCombBox;
     QGroupBox *group2;
     QGridLayout *gridLayout_2;
-    QLabel *label;
     QHBoxLayout *horizontalLayout_2;
     QTextEdit *xiEdit;
     QTextEdit *yiEdit;
-    QLabel *label_4;
-    QTextEdit *xtextEdit_5;
-    QLabel *label_5;
     QHBoxLayout *horizontalLayout_7;
     QTextEdit *xMaxStepEdit;
     QTextEdit *yMaxStepEdit;
@@ -59,11 +55,19 @@ public:
     QHBoxLayout *horizontalLayout_8;
     QTextEdit *xMinStepEdit;
     QTextEdit *yMinStepEdit;
+    QLabel *label_4;
+    QLabel *label;
+    QLabel *label_5;
+    QTextEdit *maxTimesEdit;
     QGroupBox *groupBox;
     QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout_3;
-    QPushButton *nextButton;
+    QPushButton *sureButton;
     QSpacerItem *horizontalSpacer;
+    QPushButton *refreshButton;
+    QHBoxLayout *horizontalLayout_6;
+    QPushButton *nextButton;
+    QSpacerItem *horizontalSpacer_3;
     QPushButton *preButton;
     QHBoxLayout *horizontalLayout_4;
     QPushButton *allGetsButton;
@@ -84,7 +88,7 @@ public:
     {
         if (RandomRunAppClass->objectName().isEmpty())
             RandomRunAppClass->setObjectName(QString::fromUtf8("RandomRunAppClass"));
-        RandomRunAppClass->resize(719, 471);
+        RandomRunAppClass->resize(788, 538);
         centralWidget = new QWidget(RandomRunAppClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
@@ -178,13 +182,6 @@ public:
         gridLayout_2->setSpacing(6);
         gridLayout_2->setContentsMargins(11, 11, 11, 11);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        label = new QLabel(group2);
-        label->setObjectName(QString::fromUtf8("label"));
-        sizePolicy3.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
-        label->setSizePolicy(sizePolicy3);
-
-        gridLayout_2->addWidget(label, 0, 0, 1, 1);
-
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(15);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
@@ -225,34 +222,6 @@ public:
         horizontalLayout_2->setStretch(1, 1);
 
         gridLayout_2->addLayout(horizontalLayout_2, 0, 1, 1, 1);
-
-        label_4 = new QLabel(group2);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-        sizePolicy3.setHeightForWidth(label_4->sizePolicy().hasHeightForWidth());
-        label_4->setSizePolicy(sizePolicy3);
-
-        gridLayout_2->addWidget(label_4, 1, 0, 1, 1);
-
-        xtextEdit_5 = new QTextEdit(group2);
-        xtextEdit_5->setObjectName(QString::fromUtf8("xtextEdit_5"));
-        sizePolicy1.setHeightForWidth(xtextEdit_5->sizePolicy().hasHeightForWidth());
-        xtextEdit_5->setSizePolicy(sizePolicy1);
-        xtextEdit_5->setMinimumSize(QSize(0, 10));
-        xtextEdit_5->setMaximumSize(QSize(16777215, 35));
-        xtextEdit_5->setFont(font);
-        xtextEdit_5->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        xtextEdit_5->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        xtextEdit_5->setTabChangesFocus(true);
-        xtextEdit_5->setAcceptRichText(false);
-
-        gridLayout_2->addWidget(xtextEdit_5, 1, 1, 1, 1);
-
-        label_5 = new QLabel(group2);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-        sizePolicy3.setHeightForWidth(label_5->sizePolicy().hasHeightForWidth());
-        label_5->setSizePolicy(sizePolicy3);
-
-        gridLayout_2->addWidget(label_5, 2, 0, 1, 1);
 
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setSpacing(15);
@@ -333,6 +302,41 @@ public:
 
         gridLayout_2->addLayout(horizontalLayout_8, 4, 1, 1, 1);
 
+        label_4 = new QLabel(group2);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        sizePolicy3.setHeightForWidth(label_4->sizePolicy().hasHeightForWidth());
+        label_4->setSizePolicy(sizePolicy3);
+
+        gridLayout_2->addWidget(label_4, 1, 0, 1, 1);
+
+        label = new QLabel(group2);
+        label->setObjectName(QString::fromUtf8("label"));
+        sizePolicy3.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
+        label->setSizePolicy(sizePolicy3);
+
+        gridLayout_2->addWidget(label, 0, 0, 1, 1);
+
+        label_5 = new QLabel(group2);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+        sizePolicy3.setHeightForWidth(label_5->sizePolicy().hasHeightForWidth());
+        label_5->setSizePolicy(sizePolicy3);
+
+        gridLayout_2->addWidget(label_5, 2, 0, 1, 1);
+
+        maxTimesEdit = new QTextEdit(group2);
+        maxTimesEdit->setObjectName(QString::fromUtf8("maxTimesEdit"));
+        sizePolicy1.setHeightForWidth(maxTimesEdit->sizePolicy().hasHeightForWidth());
+        maxTimesEdit->setSizePolicy(sizePolicy1);
+        maxTimesEdit->setMinimumSize(QSize(0, 10));
+        maxTimesEdit->setMaximumSize(QSize(16777215, 35));
+        maxTimesEdit->setFont(font);
+        maxTimesEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        maxTimesEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        maxTimesEdit->setTabChangesFocus(true);
+        maxTimesEdit->setAcceptRichText(false);
+
+        gridLayout_2->addWidget(maxTimesEdit, 1, 1, 1, 1);
+
 
         verticalLayout_2->addWidget(group2);
 
@@ -347,21 +351,49 @@ public:
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        nextButton = new QPushButton(groupBox);
-        nextButton->setObjectName(QString::fromUtf8("nextButton"));
+        sureButton = new QPushButton(groupBox);
+        sureButton->setObjectName(QString::fromUtf8("sureButton"));
         QSizePolicy sizePolicy5(QSizePolicy::Preferred, QSizePolicy::Fixed);
         sizePolicy5.setHorizontalStretch(10);
         sizePolicy5.setVerticalStretch(1);
+        sizePolicy5.setHeightForWidth(sureButton->sizePolicy().hasHeightForWidth());
+        sureButton->setSizePolicy(sizePolicy5);
+        sureButton->setMinimumSize(QSize(100, 0));
+        sureButton->setMaximumSize(QSize(200, 16777215));
+
+        horizontalLayout_3->addWidget(sureButton);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_3->addItem(horizontalSpacer);
+
+        refreshButton = new QPushButton(groupBox);
+        refreshButton->setObjectName(QString::fromUtf8("refreshButton"));
+        sizePolicy5.setHeightForWidth(refreshButton->sizePolicy().hasHeightForWidth());
+        refreshButton->setSizePolicy(sizePolicy5);
+        refreshButton->setMinimumSize(QSize(100, 0));
+        refreshButton->setMaximumSize(QSize(200, 16777215));
+
+        horizontalLayout_3->addWidget(refreshButton);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_3);
+
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setSpacing(6);
+        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
+        nextButton = new QPushButton(groupBox);
+        nextButton->setObjectName(QString::fromUtf8("nextButton"));
         sizePolicy5.setHeightForWidth(nextButton->sizePolicy().hasHeightForWidth());
         nextButton->setSizePolicy(sizePolicy5);
         nextButton->setMinimumSize(QSize(100, 0));
         nextButton->setMaximumSize(QSize(200, 16777215));
 
-        horizontalLayout_3->addWidget(nextButton);
+        horizontalLayout_6->addWidget(nextButton);
 
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_3->addItem(horizontalSpacer);
+        horizontalLayout_6->addItem(horizontalSpacer_3);
 
         preButton = new QPushButton(groupBox);
         preButton->setObjectName(QString::fromUtf8("preButton"));
@@ -370,10 +402,10 @@ public:
         preButton->setMinimumSize(QSize(100, 0));
         preButton->setMaximumSize(QSize(200, 16777215));
 
-        horizontalLayout_3->addWidget(preButton);
+        horizontalLayout_6->addWidget(preButton);
 
 
-        verticalLayout_3->addLayout(horizontalLayout_3);
+        verticalLayout_3->addLayout(horizontalLayout_6);
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setSpacing(6);
@@ -471,7 +503,7 @@ public:
         RandomRunAppClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(RandomRunAppClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 719, 26));
+        menuBar->setGeometry(QRect(0, 0, 788, 26));
         RandomRunAppClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(RandomRunAppClass);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -493,11 +525,13 @@ public:
         label_2->setText(QApplication::translate("RandomRunAppClass", "x\351\232\217\346\234\272\345\231\250", nullptr));
         label_3->setText(QApplication::translate("RandomRunAppClass", "y\351\232\217\346\234\272\345\231\250", nullptr));
         group2->setTitle(QApplication::translate("RandomRunAppClass", "\347\212\266\346\200\201", nullptr));
-        label->setText(QApplication::translate("RandomRunAppClass", "\345\210\235\345\247\213\344\275\215\347\275\256", nullptr));
-        label_4->setText(QApplication::translate("RandomRunAppClass", "\346\234\200\345\244\247\346\254\241\346\225\260", nullptr));
-        label_5->setText(QApplication::translate("RandomRunAppClass", "\346\234\200\345\244\247\346\255\245\351\225\277", nullptr));
         label_6->setText(QApplication::translate("RandomRunAppClass", "\346\234\200\345\260\217\346\255\245\351\225\277", nullptr));
+        label_4->setText(QApplication::translate("RandomRunAppClass", "\346\234\200\345\244\247\346\254\241\346\225\260", nullptr));
+        label->setText(QApplication::translate("RandomRunAppClass", "\345\210\235\345\247\213\344\275\215\347\275\256", nullptr));
+        label_5->setText(QApplication::translate("RandomRunAppClass", "\346\234\200\345\244\247\346\255\245\351\225\277", nullptr));
         groupBox->setTitle(QApplication::translate("RandomRunAppClass", "\346\223\215\344\275\234", nullptr));
+        sureButton->setText(QApplication::translate("RandomRunAppClass", "\347\241\256\345\256\232", nullptr));
+        refreshButton->setText(QApplication::translate("RandomRunAppClass", "\345\210\267\346\226\260", nullptr));
         nextButton->setText(QApplication::translate("RandomRunAppClass", "\344\270\213\344\270\200\344\270\252", nullptr));
         preButton->setText(QApplication::translate("RandomRunAppClass", "\344\270\212\344\270\200\344\270\252", nullptr));
         allGetsButton->setText(QApplication::translate("RandomRunAppClass", "\345\205\250\351\203\250\347\224\237\346\210\220", nullptr));
