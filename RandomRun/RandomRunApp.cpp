@@ -33,16 +33,13 @@ RandomRunApp::RandomRunApp(QWidget* parent)
 	chartTX->addSeries(serTX);
 	chartTY->addSeries(serTY);
 
-	axsTX = {new QValueAxis{this}, new QValueAxis{this}};
-	axsTY = {new QValueAxis{this}, new QValueAxis{this}};
-	axsXY = {new QValueAxis{this}, new QValueAxis{this}};
+	chartXY->createDefaultAxes();
+	chartTX->createDefaultAxes();
+	chartTY->createDefaultAxes();
 
-	chartXY->setAxisX(axsXY.first);
-	chartXY->setAxisY(axsXY.second);
-	chartTX->setAxisX(axsTX.first);
-	chartTX->setAxisY(axsTX.second);
-	chartTY->setAxisX(axsTY.first);
-	chartTY->setAxisY(axsTY.second);
+	chartXY->legend()->setVisible(false);
+	chartTX->legend()->setVisible(false);
+	chartTY->legend()->setVisible(false);
 
 	figure_data_map[chartXY] = serXY;
 	figure_data_map[chartTY] = serTY;
@@ -59,6 +56,7 @@ RandomRunApp::RandomRunApp(QWidget* parent)
 		ui.yRandCombBox->addItem(e);
 	}
 	this->chart_view->setChart(chartXY);
+	ui.figureCombBox->setCurrentIndex(2);
 	connect(ui.nextButton, SIGNAL(clicked()), this, SLOT(next()));
 	connect(ui.preButton, SIGNAL(clicked()), this, SLOT(pre()));
 	connect(ui.clearButton, SIGNAL(clicked()), this, SLOT(clear()));
@@ -174,21 +172,20 @@ void RandomRunApp::clear()
 	}
 	else
 	{
-		if (runneri_ != nullptr)
+		if (runnerd_ != nullptr)
 		{
-			delete this->runneri_;
-			runneri_ = nullptr;
+			delete this->runnerd_;
+			runnerd_ = nullptr;
 		}
 		this->settingd_ = new RunnerSetting2d;
 		settingd_->thisTime = 0;
 	}
-	refresh();
 }
 
 void RandomRunApp::changeIntegerState(int mode)
 {
 #ifdef _DEBUG
-	LOUT << "changeIntegerState:"<<"Integer"<<mode<<'\n';
+	LOUT << "changeIntegerState:" << "Integer" << mode << '\n';
 #endif
 	this->integer_flag = mode;
 	refresh();
@@ -212,7 +209,7 @@ void RandomRunApp::sure()
 		ui.yiEdit->setReadOnly(false);
 	}
 	else
-	{	
+	{
 		ui.sureButton->setText(QApplication::translate("RandomRunAppClass", "\345\217\226\346\266\210", nullptr));
 		ui.xMinStepEdit->setReadOnly(true);
 		ui.yMinStepEdit->setReadOnly(true);
@@ -230,7 +227,7 @@ void RandomRunApp::sure()
 			serTY->append(0, runneri_->pos().y());
 			serXY->append(runneri_->pos().x(), runneri_->pos().y());
 #ifdef _DEBUG
-			LOUT << "size:pathi:" << pathi_->history().size()<< "\n";
+			LOUT << "size:pathi:" << pathi_->history().size() << "\n";
 #endif
 		}
 		else
@@ -244,7 +241,7 @@ void RandomRunApp::sure()
 		}
 	}
 #ifdef _DEBUG
-	LOUT << "size:serXY:"<<serXY->children().size()<< "\n";
+	LOUT << "size:serXY:" << serXY->children().size() << "\n";
 #endif
 }
 
@@ -253,8 +250,7 @@ void RandomRunApp::warning_sure()
 #ifdef _DEBUG
 	LOUT << "pump message box \n";
 #endif
-	QMessageBox::StandardButton reply;
-	reply = QMessageBox::information(this, QStringLiteral("注意"), QStringLiteral("请先确认！"));
+	QMessageBox::information(this, QStringLiteral("注意"), QStringLiteral("请先确认！"));
 }
 
 void RandomRunApp::next()
@@ -273,12 +269,12 @@ void RandomRunApp::next()
 		runneri_->nextStep();
 		auto e = pathi_->history().back();
 		serTX->append(pathi_->history().size() - 1, e.x());
-		serTX->append(pathi_->history().size() - 1, e.y());
+		serTY->append(pathi_->history().size() - 1, e.y());
 		serXY->append(e.x(), e.y());
 #ifdef _DEBUG
 		LOUT << "size:pathi:" << pathi_->history().size() << "\n";
-		LOUT << "where runner:" <<runneri_->pos()<< "\n";
-		LOUT << "current index:" << settingi_->thisTime<<'\n';
+		LOUT << "where runner:" << runneri_->pos() << "\n";
+		LOUT << "current index:" << settingi_->thisTime << '\n';
 #endif
 	}
 	else
@@ -287,17 +283,18 @@ void RandomRunApp::next()
 		runnerd_->nextStep();
 		auto e = pathd_->history().back();
 		serTX->append(pathd_->history().size() - 1, e.x());
-		serTX->append(pathd_->history().size() - 1, e.y());
+		serTY->append(pathd_->history().size() - 1, e.y());
 		serXY->append(e.x(), e.y());
 #ifdef _DEBUG
 		LOUT << "size:pathd:" << pathd_->history().size() << "\n";
 		LOUT << "where runner:" << runnerd_->pos() << "\n";
-		LOUT << "current index:" << settingd_->thisTime<<"\n";
+		LOUT << "current index:" << settingd_->thisTime << "\n";
 #endif
 	}
 #ifdef _DEBUG
 	LOUT << "size:serXY:" << serXY->count() << "\n";
 #endif
+	updateAxis();
 }
 
 void RandomRunApp::pre()
@@ -339,23 +336,33 @@ void RandomRunApp::showAll()
 	if (integer_flag)
 	{
 #ifdef _DEBUG
-		LOUT << "showall:count="<<(settingi_->maxTime- settingi_->thisTime)<<'\n';
+		LOUT << "showall:count=" << (settingi_->maxTime - settingi_->thisTime) << '\n';
 #endif
 		while (settingi_->thisTime < settingi_->maxTime)
-			next();
+		{
+			runneri_->nextStep();
+		}
 	}
 	else
 	{
 #ifdef _DEBUG
-		LOUT << "showall:count="<< (settingd_->maxTime - settingd_->thisTime) << '\n';
+		LOUT << "showall:count=" << (settingd_->maxTime - settingd_->thisTime) << '\n';
 #endif
 		while (settingd_->thisTime < settingd_->maxTime)
-			next();
+		{
+			runnerd_->nextStep();
+		}
 	}
+	refresh();
 }
 
 void RandomRunApp::refresh()
 {
+	if (!fixed_flag)
+	{
+		warning_sure();
+		return;
+	}
 #ifdef _DEBUG
 	LOUT << "refresh\n";
 #endif
@@ -369,9 +376,9 @@ void RandomRunApp::refresh()
 			auto& e = *b;
 			serTX->append(i, e.x());
 			serTY->append(i, e.y());
-			serTY->append(e.x(), e.y());
+			serXY->append(e.x(), e.y());
 #ifdef _DEBUG
-			LOUT <<"\t i="<<i <<"\t pos:" << e << '\n';
+			LOUT << "\t i=" << i << "\t pos:" << e << '\n';
 #endif
 			++i;
 		}
@@ -379,19 +386,19 @@ void RandomRunApp::refresh()
 	else
 	{
 		if (pathd_ == nullptr)return;
-		int i = 0;
-		for (auto b = pathd_->history().begin(); b != pathd_->history().end(); ++b)
+		auto i = 0;
+		for (auto& e : pathd_->history())
 		{
-			auto& e = *b;
 			serTX->append(i, e.x());
 			serTY->append(i, e.y());
-			serTY->append(e.x(), e.y());
+			serXY->append(e.x(), e.y());
 #ifdef _DEBUG
 			LOUT << "\t i=" << i << "\t pos:" << e << '\n';
 #endif
 			++i;
 		}
 	}
+	updateAxis();
 }
 
 void RandomRunApp::changeFigure(QString s)
@@ -429,5 +436,23 @@ void RandomRunApp::changeYGAN(QString s)
 	else
 	{
 		runnerd_->set_y_gen(gen_name_map[s]);
+	}
+}
+
+void RandomRunApp::updateAxis()
+{
+	const auto charts = {chartXY, chartTX, chartTY};
+	static const auto cmpx = [&](const QPointF& a, const QPointF& b)-> int { return a.x() < b.x(); };
+	static const auto cmpy = [&](const QPointF& a, const QPointF& b)-> int { return a.y() < b.y(); };
+	for (auto chart : charts)
+	{
+		QLineSeries*const list = static_cast<QLineSeries* const>(chart->series().at(0));
+		const auto& ps = list->pointsVector();
+		auto xmax = std::max_element(ps.cbegin(), ps.cend(), cmpx);
+		auto xmin = std::min_element(ps.cbegin(), ps.cend(), cmpx);
+		auto ymax = std::max_element(ps.cbegin(), ps.cend(), cmpy);
+		auto ymin = std::min_element(ps.cbegin(), ps.cend(), cmpy);
+		chart->axes(Qt::Horizontal).at(0)->setRange(xmin->x() * 1.05, xmax->x() * 1.05);
+		chart->axes(Qt::Vertical).at(0)->setRange(ymin->y() * 1.05, ymax->y() * 1.05);
 	}
 }

@@ -44,10 +44,6 @@ private:
 	QLineSeries* serTX = nullptr;
 	QLineSeries* serTY = nullptr;
 
-	std::pair<QValueAxis*, QValueAxis*> axsXY = {nullptr, nullptr};
-	std::pair<QValueAxis*, QValueAxis*> axsTY = {nullptr, nullptr};
-	std::pair<QValueAxis*, QValueAxis*> axsTX = {nullptr, nullptr};
-
 	runner2i* runneri_ = nullptr;
 	runner2d* runnerd_ = nullptr;
 	RunnerSetting2d* settingd_ = new RunnerSetting2d;
@@ -59,6 +55,7 @@ private:
 	void update_setting();
 	void clearSerData();
 	void warning_sure();
+	void updateAxis();
 public slots:
 	void clear();
 	void changeIntegerState(int);
