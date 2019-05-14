@@ -3,7 +3,7 @@
 #include "randGen.h"
 #include "stdafx.h"
 
-struct runnerSetting2i
+struct RunnerSetting2i
 {
 	pos2i maxLength;
 	pos2i minLength;
@@ -11,18 +11,18 @@ struct runnerSetting2i
 	size_t thisTime = 0;
 };
 
-class runner : public QObject
+class runner2i : public QObject
 {
-	Q_OBJECT
-		using gen = std::shared_ptr<RandGenInterface>;
+Q_OBJECT
+	using gen = std::shared_ptr<RandGenInterface>;
 public:
-	runnerSetting2i setting;
+	RunnerSetting2i setting;
 
-	runner(const pos2i pos, runnerSetting2i setting, const gen rand_gen_interface, const gen rand_gen_interface1);
+	runner2i(const pos2i pos, RunnerSetting2i setting, const gen rand_gen_interface, const gen rand_gen_interface1);
 
 	void nextStep();
 
-	void set_setting(const runnerSetting2i& setting);
+	void set_setting(const RunnerSetting2i& setting);
 
 	pos2i pos() const;
 
@@ -34,15 +34,59 @@ public:
 
 	void set_y_gen(const gen& rand_gen_interface);
 
-private:
-	pos2i pos_;
-	gen x_gen_;
-	gen y_gen_;
-
 	void setPos(int x, int y);
 
 	void setPos(const pos2i& i);
 
+private:
+	pos2i pos_;
+	gen x_gen_;
+	gen y_gen_;
 signals:
 	void positionChanged(pos2i pre, pos2i now);
+};
+
+struct RunnerSetting2d
+{
+	pos2d maxLength;
+	pos2d minLength;
+	size_t maxTime = UINT_MAX;
+	size_t thisTime = 0;
+};
+
+class runner2d : public QObject
+{
+Q_OBJECT
+	using gen = std::shared_ptr<RandGenInterface>;
+public:
+	RunnerSetting2d setting;
+
+	runner2d(const pos2d pos, RunnerSetting2d setting, const gen rand_gen_interface, const gen rand_gen_interface1);
+
+	void nextStep();
+
+	void set_setting(const RunnerSetting2d& setting);
+
+	pos2d pos() const;
+
+	gen x_gen() const;
+
+	void set_x_gen(const gen& rand_gen_interface);
+
+	gen y_gen() const;
+
+	void set_y_gen(const gen& rand_gen_interface);
+
+	void setPos(double x, double y);
+
+	void setPos(const pos2d& i);
+
+private:
+	pos2d pos_;
+	gen x_gen_;
+	gen y_gen_;
+
+
+signals:
+	void positionChanged(pos2d pre, pos2d now);
 };
